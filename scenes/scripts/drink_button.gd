@@ -1,6 +1,5 @@
 extends Area2D
 
-@onready var crosshair: Area2D = $"../../crosshair"
 
 
 func shoot():

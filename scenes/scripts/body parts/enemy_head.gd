@@ -1,5 +1,4 @@
 extends Area2D
-@onready var enemy: Node2D = $".."
 @onready var draw_bar: TextureProgressBar = $"../DrawBar"
 
 func shoot():
@@ -7,4 +6,4 @@ func shoot():
 		print("you won")
 		DuelingJudge.is_shot = true
 	else:
-		print("You got killed")
+		print("You shot too early")

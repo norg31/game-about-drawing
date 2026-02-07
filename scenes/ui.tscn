@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c3am46cstrc7m"]
+
+[ext_resource type="PackedScene" uid="uid://c60cg30rs3vfi" path="res://scenes/crosshair.tscn" id="1_nt7q6"]
+
+[node name="UI" type="Node2D" unique_id=1220906756]
+
+[node name="crosshair" parent="." unique_id=766271273 instance=ExtResource("1_nt7q6")]
+position = Vector2(41, -98)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1598160059]
+zoom = Vector2(4, 4)

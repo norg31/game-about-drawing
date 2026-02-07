@@ -9,8 +9,10 @@ func _input(event: InputEvent) -> void:
 		return
 	else:
 		if event.is_action_pressed("shoot") and is_shot:
+			print("You hit")
 			duel_won()
 		elif event.is_action_pressed("shoot") and !is_shot:
+			print("You missed")
 			duel_lost()
 			
 
