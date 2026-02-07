@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3am46cstrc7m"]
 
 [ext_resource type="PackedScene" uid="uid://c60cg30rs3vfi" path="res://scenes/crosshair.tscn" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://cxkc3y4d0s3rj" path="res://scenes/scripts/level_count_display.gd" id="2_x4jx1"]
 
 [node name="UI" type="Node2D" unique_id=1220906756]
 
@@ -9,3 +10,12 @@ position = Vector2(41, -98)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1598160059]
 zoom = Vector2(4, 4)
+
+[node name="LevelCountDisplay" type="RichTextLabel" parent="." unique_id=1209554572]
+offset_left = 81.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = -37.0
+scroll_active = false
+horizontal_alignment = 2
+script = ExtResource("2_x4jx1")

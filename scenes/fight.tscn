@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://54hikwuwvyfa"]
 
-[ext_resource type="PackedScene" uid="uid://c3am46cstrc7m" path="res://scenes/ui.tscn" id="1_f43n0"]
 [ext_resource type="Texture2D" uid="uid://cgrx31wwuw4pj" path="res://assets/outlaw.jpg" id="2_htrw1"]
 [ext_resource type="Script" uid="uid://0q8iuyv40t7k" path="res://scenes/scripts/body parts/enemy_head.gd" id="3_5mf5x"]
 [ext_resource type="Script" uid="uid://btcrmayvkkm0r" path="res://scenes/scripts/body parts/enemy_torso.gd" id="4_qogor"]
@@ -16,8 +15,6 @@ height = 18.0
 size = Vector2(29, 38)
 
 [node name="fight" type="Node2D" unique_id=1610886303]
-
-[node name="UI" parent="." unique_id=1220906756 instance=ExtResource("1_f43n0")]
 
 [node name="Enemy" type="Node2D" parent="." unique_id=1207926762]
 
