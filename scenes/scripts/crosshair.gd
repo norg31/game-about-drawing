@@ -30,3 +30,4 @@ func _input(event: InputEvent) -> void:
 		for body in get_overlapping_areas():
 			if body.has_method("shoot"):
 				body.shoot()
+			

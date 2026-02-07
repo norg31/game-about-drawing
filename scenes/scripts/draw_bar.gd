@@ -1,12 +1,20 @@
 extends TextureProgressBar
-@onready var draw_bar: TextureProgressBar = $"."
 
 @export var can_be_killed = false
 
-func _process(delta: float) -> void:
-	draw_bar.value += step
-	if draw_bar.value >= 70:
+func _ready() -> void:
+	DuelingJudge.is_dueling = true
+
+func _process(_delta: float) -> void:
+	value += step
+	
+	if value > 70 and value < 100:
 		can_be_killed = true
+		
+	elif value == 100:
+		can_be_killed = false
+		DuelingJudge.duel_lost()
 	else:
 		can_be_killed = false
 		
+	
