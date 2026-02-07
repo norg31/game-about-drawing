@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c86xvn5becbep"]
+
+[ext_resource type="PackedScene" uid="uid://c60cg30rs3vfi" path="res://scenes/crosshair.tscn" id="1_sh5s6"]
+[ext_resource type="Script" uid="uid://dd1jgc5l7mjaf" path="res://scenes/scripts/drink_button.gd" id="2_0lkfv"]
+[ext_resource type="Texture2D" uid="uid://c71gh7un27lfq" path="res://assets/drink button.png" id="2_exqet"]
+[ext_resource type="Texture2D" uid="uid://d0apdbmuugxo0" path="res://icon.svg" id="4_j45im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lkfv"]
+size = Vector2(55, 30)
+
+[node name="Drink" type="Node2D" unique_id=165905060]
+
+[node name="crosshair" parent="." unique_id=766271273 instance=ExtResource("1_sh5s6")]
+position = Vector2(87, -120)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1234756899]
+zoom = Vector2(4, 4)
+
+[node name="Drink" type="Node2D" parent="." unique_id=30918094]
+
+[node name="DrinkButton" type="Area2D" parent="Drink" unique_id=1923679510]
+script = ExtResource("2_0lkfv")
+
+[node name="TextureRect" type="TextureRect" parent="Drink/DrinkButton" unique_id=1383716465]
+offset_left = -30.0
+offset_top = -48.0
+offset_right = 29.0
+offset_bottom = -14.0
+texture = ExtResource("2_exqet")
+stretch_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drink/DrinkButton" unique_id=77592345]
+position = Vector2(-0.5, -31)
+shape = SubResource("RectangleShape2D_0lkfv")
+
+[node name="AlcoholGlass" type="TextureRect" parent="Drink" unique_id=1795046655]
+offset_left = -34.0
+offset_top = 18.0
+offset_right = 34.0
+offset_bottom = 65.0
+texture = ExtResource("4_j45im")
+expand_mode = 1

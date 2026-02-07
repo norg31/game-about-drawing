@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dljsdjehchjyf"]
+
+[ext_resource type="Script" uid="uid://bwaqdb14s2fll" path="res://scenes/scripts/bottles.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://brr7gicmiwaxs" path="res://assets/bottle.png" id="2_l4doi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(43.333332, 86.666664)
+
+[node name="MainMenuBottles" type="Area2D" unique_id=203788277]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=639187778]
+texture = ExtResource("2_l4doi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1947587468]
+position = Vector2(1.6666658, 7.947286e-07)
+shape = SubResource("RectangleShape2D_md0e3")

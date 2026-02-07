@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://54hikwuwvyfa"]
+
+[ext_resource type="PackedScene" uid="uid://c60cg30rs3vfi" path="res://scenes/crosshair.tscn" id="1_537il"]
+[ext_resource type="Texture2D" uid="uid://cgrx31wwuw4pj" path="res://assets/outlaw.jpg" id="2_htrw1"]
+[ext_resource type="Script" uid="uid://0q8iuyv40t7k" path="res://scenes/scripts/body parts/enemy_head.gd" id="3_5mf5x"]
+[ext_resource type="Script" uid="uid://btcrmayvkkm0r" path="res://scenes/scripts/body parts/enemy_torso.gd" id="4_qogor"]
+[ext_resource type="Texture2D" uid="uid://ryl7ma8fxc8o" path="res://assets/progressbar.png" id="5_57w1i"]
+[ext_resource type="Texture2D" uid="uid://cg06j1evpk32y" path="res://assets/progress.png" id="6_f43n0"]
+[ext_resource type="Script" uid="uid://ch1i0267m7gdc" path="res://scenes/scripts/draw_bar.gd" id="7_f43n0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_osnhv"]
+radius = 8.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mf5x"]
+size = Vector2(29, 38)
+
+[node name="fight" type="Node2D" unique_id=1610886303]
+
+[node name="crosshair" parent="." unique_id=766271273 instance=ExtResource("1_537il")]
+position = Vector2(87, -120)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1019202100]
+zoom = Vector2(4, 4)
+
+[node name="Enemy" type="Node2D" parent="." unique_id=1207926762]
+
+[node name="TextureRect" type="TextureRect" parent="Enemy" unique_id=198311341]
+offset_left = -71.0
+offset_top = -60.0
+offset_right = 71.0
+offset_bottom = 81.0
+texture = ExtResource("2_htrw1")
+expand_mode = 1
+
+[node name="EnemyHead" type="Area2D" parent="Enemy" unique_id=1977423815]
+script = ExtResource("3_5mf5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/EnemyHead" unique_id=761572691]
+position = Vector2(-4, -32)
+shape = SubResource("CapsuleShape2D_osnhv")
+
+[node name="EnemyTorso" type="Area2D" parent="Enemy" unique_id=607483730]
+script = ExtResource("4_qogor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/EnemyTorso" unique_id=778899228]
+position = Vector2(-2.5, -4)
+shape = SubResource("RectangleShape2D_5mf5x")
+
+[node name="DrawBar" type="TextureProgressBar" parent="Enemy" unique_id=423629855]
+offset_left = -51.0
+offset_top = 47.0
+offset_right = 51.0
+offset_bottom = 59.0
+step = 0.5
+fill_mode = 6
+texture_under = ExtResource("5_57w1i")
+texture_progress = ExtResource("6_f43n0")
+texture_progress_offset = Vector2(1, 1)
+script = ExtResource("7_f43n0")
