@@ -1,5 +1,5 @@
 extends Node2D
 
 
-func shoot():
+func shoot() -> void:
 	queue_free()

@@ -1,8 +1,9 @@
 extends Node
 
 
-var is_dueling = false
-var is_shot = false
+var is_dueling : bool = false
+var is_wounded: bool = false
+var is_shot : bool = false
 
 func _input(event: InputEvent) -> void:
 	if not is_dueling:
@@ -16,16 +17,18 @@ func _input(event: InputEvent) -> void:
 			duel_lost()
 			
 
-func duel_won():
+func duel_won() -> void:
 	print("duel won")
 	is_shot = false
+	is_wounded = false
 	is_dueling = false
 	get_tree().change_scene_to_file("res://scenes/drink.tscn")
 
-func duel_lost():
+func duel_lost() -> void:
 	print("duel lost")
 	print("Level achieved: ", GameState.level_counter)
 	is_shot = false
+	is_wounded = false
 	is_dueling = false
 	
 	GameState.wobble_strength = GameState.BASE_STRENGTH

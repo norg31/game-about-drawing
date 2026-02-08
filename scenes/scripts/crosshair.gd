@@ -1,21 +1,21 @@
 extends Area2D
 
 
-var time := 0.0
+var time : float = 0.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-func _process(delta):
+func _process(delta:float) -> void:
 	set_crosshair_position(delta)
 
 
-func set_crosshair_position(delta):
+func set_crosshair_position(delta:float) -> void:
 	time += delta * GameState.wobble_speed
 
-	var mouse_pos = get_global_mouse_position()
+	var mouse_pos : Vector2 = get_global_mouse_position()
 
-	var wobble = Vector2(
+	var wobble : Vector2 = Vector2(
 		sin(time),
 		cos(time * 1.3)
 	) * GameState.wobble_strength
@@ -25,7 +25,7 @@ func set_crosshair_position(delta):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
-		for body in get_overlapping_areas():
+		for body : Node2D in get_overlapping_areas():
 			if body.has_method("shoot"):
 				body.shoot()
 			

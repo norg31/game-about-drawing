@@ -2,9 +2,9 @@ extends Area2D
 
 @onready var drink_effects: AnimationPlayer = $"../DrinkEffects"
 
-var has_shot = false
+var has_shot :bool = false
 
-func shoot():
+func shoot() -> void:
 	if has_shot:
 		return
 	
@@ -24,7 +24,7 @@ func shoot():
 	#  Play drinking animation  &  Switch scene to fight scene
 	drink()
 
-func drink():
+func drink() -> void:
 	drink_effects.play("DrinkEffects")
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://scenes/fight.tscn")

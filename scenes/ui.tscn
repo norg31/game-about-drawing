@@ -6,7 +6,7 @@
 [node name="UI" type="Node2D" unique_id=1220906756]
 
 [node name="crosshair" parent="." unique_id=766271273 instance=ExtResource("1_nt7q6")]
-position = Vector2(41, -98)
+position = Vector2(-1, 0)
 
 [node name="LevelCountDisplay" type="RichTextLabel" parent="." unique_id=1209554572]
 offset_left = 81.0

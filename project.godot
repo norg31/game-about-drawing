@@ -21,6 +21,11 @@ GameState="*uid://coa7a8ll5lty0"
 DuelingJudge="*uid://bp0loci8nvk0w"
 Ui="*uid://c3am46cstrc7m"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+
 [input]
 
 shoot={
