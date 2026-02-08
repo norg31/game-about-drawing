@@ -1,4 +1,5 @@
 extends TextureProgressBar
+@onready var drunk_effects: AnimationPlayer = $"../../DrunkEffects"
 
 @export var can_be_killed = false
 

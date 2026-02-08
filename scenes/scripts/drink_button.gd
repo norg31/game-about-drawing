@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var drink_effects: AnimationPlayer = $"../DrinkEffects"
 
 
 func shoot():
@@ -15,9 +16,11 @@ func shoot():
 	print("level: ", GameState.level_counter)
 
 	
-	##  Play drinking animation
-	# ...
-	
-	
-	#  Switch scene to fight scene
+	#  Play drinking animation  &  Switch scene to fight scene
+	drink()
+
+func drink():
+	drink_effects.play("DrinkEffects")
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://scenes/fight.tscn")
+	

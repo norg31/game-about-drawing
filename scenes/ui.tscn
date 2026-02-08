@@ -8,9 +8,6 @@
 [node name="crosshair" parent="." unique_id=766271273 instance=ExtResource("1_nt7q6")]
 position = Vector2(41, -98)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1598160059]
-zoom = Vector2(4, 4)
-
 [node name="LevelCountDisplay" type="RichTextLabel" parent="." unique_id=1209554572]
 offset_left = 81.0
 offset_top = -81.0

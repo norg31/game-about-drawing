@@ -7,14 +7,72 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lkfv"]
 size = Vector2(55, 30)
 
+[sub_resource type="Animation" id="Animation_j45im"]
+resource_name = "screen flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkEffects/ScreenFlash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.4627451, 0, 0), Color(0, 0.4627451, 0, 0.35686275), Color(0, 0.4627451, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0lkfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DrinkEffects/ScreenFlash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.4627451, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2iv58"]
+_data = {
+&"DrinkEffects": SubResource("Animation_j45im"),
+&"RESET": SubResource("Animation_0lkfv")
+}
+
 [node name="Drink" type="Node2D" unique_id=165905060]
 
-[node name="Menu" type="Node2D" parent="." unique_id=30918094]
-
-[node name="DrinkButton" type="Area2D" parent="Menu" unique_id=1923679510]
+[node name="DrinkButton" type="Area2D" parent="." unique_id=1923679510]
 script = ExtResource("2_0lkfv")
 
-[node name="TextureRect" type="TextureRect" parent="Menu/DrinkButton" unique_id=1383716465]
+[node name="TextureRect" type="TextureRect" parent="DrinkButton" unique_id=1383716465]
 offset_left = -30.0
 offset_top = -48.0
 offset_right = 29.0
@@ -22,14 +80,28 @@ offset_bottom = -14.0
 texture = ExtResource("2_exqet")
 stretch_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/DrinkButton" unique_id=77592345]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrinkButton" unique_id=77592345]
 position = Vector2(-0.5, -31)
 shape = SubResource("RectangleShape2D_0lkfv")
 
-[node name="AlcoholGlass" type="TextureRect" parent="Menu" unique_id=1795046655]
+[node name="AlcoholGlass" type="TextureRect" parent="." unique_id=1795046655]
 offset_left = -34.0
 offset_top = 18.0
 offset_right = 34.0
 offset_bottom = 65.0
 texture = ExtResource("4_j45im")
 expand_mode = 1
+
+[node name="DrinkEffects" type="AnimationPlayer" parent="." unique_id=550767024]
+libraries/ = SubResource("AnimationLibrary_2iv58")
+
+[node name="ScreenFlash" type="ColorRect" parent="DrinkEffects" unique_id=396544534]
+offset_left = -571.0
+offset_top = -287.0
+offset_right = 589.0
+offset_bottom = 311.0
+color = Color(0, 0.4627451, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2018245720]
+ignore_rotation = false
+zoom = Vector2(4, 4)
