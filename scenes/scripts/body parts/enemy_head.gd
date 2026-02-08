@@ -3,7 +3,6 @@ extends Area2D
 
 func shoot() -> void:
 	if draw_bar.can_be_shot:
-		print("you killed the enemy")
 		DuelingJudge.is_shot = true
 	else:
 		print("You shot too early")
