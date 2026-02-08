@@ -2,8 +2,13 @@ extends Area2D
 
 @onready var drink_effects: AnimationPlayer = $"../DrinkEffects"
 
+var has_shot = false
 
 func shoot():
+	if has_shot:
+		return
+	
+	has_shot = true
 	print("Drunk")
 	
 	# Change crosshair wobble 
